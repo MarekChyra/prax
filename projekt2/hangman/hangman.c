@@ -96,7 +96,7 @@ void hangman(const char secret[]) {
     int cislo = 0;
     int i, j;
     int uhadnute = 0, neviem = 0;
-    int gues = 16;
+    int gues = 8;
     char avaliable_letters[26];
     char result[30];
     
@@ -104,21 +104,19 @@ void hangman(const char secret[]) {
     printf("I am thinking of a word that is %ld letters long.\n", strlen(secret));
     do{
     printf("-------------\n");
-    printf("You have %d guesses left.\n", gues/2);
+    printf("You have %d guesses left.\n", gues);
     printf("Please guess a letter: ");
-    scanf("%c", &letters_guessed[cislo]);
+    scanf(" %c", &letters_guessed[cislo]);
     cislo++;
     printf("\n");
     get_guessed_word(secret, letters_guessed, result);
     printf("\n");
     get_available_letters(letters_guessed, avaliable_letters);
     uhadnute = 0;
-    for (i=0;i<strlen(letters_guessed);i++) {
-        for (j=0;j<strlen(secret);j++) {
-            if (letters_guessed[i] == secret[j]) {
-                uhadnute++;
-            }
-        }
+    for (i=0;i<strlen(secret);i++) {
+        if (letters_guessed[cislo - 1] == secret[i]) {
+            uhadnute++;
+	}
     }
     if (uhadnute == neviem) {
         printf("\nNeuhadol si.\n");
