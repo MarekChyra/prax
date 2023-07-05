@@ -2,23 +2,21 @@
 #include <stdlib.h>
 
 int opposite_number(const int n, const int number) {
-    int opacne;
+  int opacne;
 
-    if (number > n/2) {
-        opacne = number - n/2;
-    }
-    else if (number < n/2) {
-        opacne = number + n/2;
-    }
-    else {
-        opacne = 0;
-    }
+  if (number > n / 2) {
+    opacne = number - n / 2;
+  } else if (number < n / 2) {
+    opacne = number + n / 2;
+  } else {
+    opacne = 0;
+  }
 
-    return opacne;
+  return opacne;
 }
 
 int main() {
-    printf("%d\n", opposite_number(10,2));
+  printf("%d\n", opposite_number(10, 2));
 
-    return 0;
+  return 0;
 }
