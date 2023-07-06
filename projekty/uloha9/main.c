@@ -1,35 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int special_numbers(const int input_array[], const int array_size, int result_array[]) {
-    int i, j, k = 0;
-    int sucet = 0;
+int special_numbers(const int input_array[], const int array_size,
+                    int result_array[]) {
+  int k = 0;
+  int sucet = 0;
 
-    for (i=0;i<array_size;i++) {
-        sucet = 0;
-        
-        for (j=i+1;j<array_size;j++) {
-            sucet = sucet + input_array[j];
-        }
-        
-        if (input_array[i]>sucet) {
-            result_array[k] = input_array[i];
-            k++;
-        }
+  for (int i = 0; i < array_size; i++) {
+    sucet = 0;
+
+    for (int j = i + 1; j < array_size; j++) {
+      sucet = sucet + input_array[j];
     }
 
-    return k;
+    if (input_array[i] > sucet) {
+      result_array[k] = input_array[i];
+      k++;
+    }
+  }
+
+  return k;
 }
 
 int main() {
-    int input_array[] = {16,17,4,3,5,2};
-    int result_array[6];
-    int count = special_numbers(input_array, 6, result_array);
+  int input_array[] = {16, 17, 4, 3, 5, 2};
+  int result_array[6];
+  int count = special_numbers(input_array, 6, result_array);
 
-    for(int i = 0; i < count; i++){
-        printf("%d ", result_array[i]);
-    }
-    printf("\n");
+  for (int i = 0; i < count; i++) {
+    printf("%d ", result_array[i]);
+  }
+  printf("\n");
 
-    return 0;
+  return 0;
 }

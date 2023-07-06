@@ -46,11 +46,7 @@ int is_word_guessed(const char secret[], const char letters_guessed[]) {
     }
   }
 
-  if (uhadnute == strlen(secret)) {
-    return 1;
-  } else {
-    return 0;
-  }
+  return uhadnute == strlen(secret);
 }
 
 void get_guessed_word(const char secret[], const char letters_guessed[],
@@ -92,7 +88,6 @@ void get_available_letters(const char letters_guessed[],
 void hangman(const char secret[]) {
   char letters_guessed[26];
   int cislo = 0;
-  int i, j;
   int uhadnute = 0, neviem = 0;
   int gues = 8;
   char avaliable_letters[26];
@@ -114,7 +109,7 @@ void hangman(const char secret[]) {
     printf("\n");
     get_available_letters(letters_guessed, avaliable_letters);
     uhadnute = 0;
-    for (i = 0; i < strlen(secret); i++) {
+    for (int i = 0; i < strlen(secret); i++) {
       if (letters_guessed[cislo - 1] == secret[i]) {
         uhadnute++;
       }
